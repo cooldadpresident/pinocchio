@@ -1,0 +1,19 @@
+description = "Honest PR review: flag claim/diff mismatches. Usage: /pinocchio-review [PR#]"
+
+prompt = """
+Invoke the `pinocchio-review` skill.
+
+Target resolution:
+- No arg → review current branch's diff vs `main` (or `master` if main doesn't exist)
+- PR number → run `gh pr view <N> --json title,body,commits,files` and review that PR
+- URL → extract PR number, same as above
+
+For every claim in the PR title, commit messages, PR body, and inline code comments, check:
+1. Does the diff actually do what's claimed?
+2. Is there test coverage for the claimed behavior?
+3. Are there hidden behavior changes the author didn't mention?
+
+Output findings in the format defined in the skill: 🤥 [severity] file:line, claim, reality, fix.
+
+Do not review code style. Do not rewrite commit messages — flag them only.
+"""

@@ -1,0 +1,17 @@
+description = "Toggle Pinocchio honesty mode. Usage: /pinocchio [lite|full|strict|reset|off]"
+
+prompt = """
+Invoke the `pinocchio` skill.
+
+Parse the argument (if any):
+- `lite`   — warn-only. Flag hedges inline with 🤥. Don't block.
+- `full`   — default. Block hedge phrases. Require [UNVERIFIED] tags. Block sycophancy. Distinguish did/intended/verified.
+- `strict` — every factual claim needs file:line / URL / command output citation. No [UNVERIFIED] escape hatch.
+- `reset`  — reset nose counter to 0.
+- `off` / `stop` — disable for session.
+
+If no argument and mode is off, enable at level `full`.
+If no argument and mode is active, report current state.
+
+Always report: current level, nose count (N/5), active carveouts.
+"""

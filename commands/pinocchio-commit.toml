@@ -1,0 +1,26 @@
+description = "Generate honest commit message from staged diff. Usage: /pinocchio-commit"
+
+prompt = """
+Invoke the `pinocchio-commit` skill.
+
+Workflow:
+1. Run `git diff --staged`. If empty, run `git diff` and warn that nothing is staged.
+2. Read the actual diff. Classify what the diff does using the verb table in the skill.
+3. Reject banned verbs (improve/enhance/optimize/update/refactor-without-proof/clean up/better/various).
+4. Draft subject in Conventional Commits format: `<type>(<scope>): <imperative verb> <what>`.
+5. Add a body only if "why" isn't obvious from subject or if there's a CVE/incident/issue to reference.
+6. Present the message to the user. Do NOT commit without confirmation.
+
+If the user confirms, run:
+```
+git commit -m "$(cat <<'EOF'
+<subject>
+
+<body if any>
+EOF
+)"
+```
+
+Never add Co-Authored-By unless the user explicitly configured that preference.
+Never claim tests pass unless they were actually run in this session.
+"""
