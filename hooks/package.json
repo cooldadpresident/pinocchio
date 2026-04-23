@@ -1,0 +1,14 @@
+{
+  "name": "pinocchio-hooks",
+  "version": "0.1.0",
+  "description": "Claude Code hooks for pinocchio honesty mode",
+  "private": true,
+  "bin": {
+    "pinocchio-activate": "./pinocchio-activate.js",
+    "pinocchio-mode-tracker": "./pinocchio-mode-tracker.js"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "license": "MIT"
+}
