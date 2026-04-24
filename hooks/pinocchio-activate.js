@@ -43,7 +43,7 @@ if (INDEPENDENT_MODES.has(mode)) {
 let skillContent = '';
 try {
   skillContent = fs.readFileSync(
-    path.join(__dirname, '..', 'pinocchio', 'SKILL.md'), 'utf8'
+    path.join(__dirname, '..', 'skills', 'pinocchio', 'SKILL.md'), 'utf8'
   );
 } catch (e) { /* standalone install — fallback */ }
 

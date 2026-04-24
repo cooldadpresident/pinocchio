@@ -1,34 +1,17 @@
 {
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "pinocchio",
-  "displayName": "Pinocchio",
-  "description": "Claude's nose stops growing. Enforces honesty, verification, and transparency. Blocks hedging, fabricated citations, and sycophancy.",
-  "version": "0.1.0",
-  "author": "cooldadpresident",
-  "license": "MIT",
-  "repository": "https://github.com/cooldadpresident/pinocchio",
-  "homepage": "https://github.com/cooldadpresident/pinocchio",
-  "keywords": [
-    "honesty",
-    "anti-hallucination",
-    "verification",
-    "anti-sycophancy",
-    "claude-code",
-    "skill",
-    "plugin"
-  ],
-  "skills": [
-    "pinocchio",
-    "pinocchio-review",
-    "pinocchio-commit"
-  ],
-  "commands": [
-    "pinocchio",
-    "pinocchio-review",
-    "pinocchio-commit"
-  ],
-  "hooks": {
-    "SessionStart": "hooks/pinocchio-activate.sh",
-    "UserPromptSubmit": "hooks/pinocchio-activate.sh",
-    "statusLine": "hooks/pinocchio-statusline.sh"
-  }
+  "description": "Claude's nose stops growing. Honesty mode — blocks hedging, fabricated citations, and sycophancy. Requires evidence for every factual claim.",
+  "owner": {
+    "name": "cooldadpresident",
+    "url": "https://github.com/cooldadpresident"
+  },
+  "plugins": [
+    {
+      "name": "pinocchio",
+      "description": "Enforce honesty, verification, and transparency. Block hedges. Require file:line / URL / cmd output citations.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
 }

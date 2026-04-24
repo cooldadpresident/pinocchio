@@ -1,0 +1,34 @@
+{
+  "name": "pinocchio",
+  "description": "Honesty mode for Claude Code. Blocks hedging, fabricated citations, and sycophancy. Requires evidence (file:line / URL / cmd output) for every factual claim.",
+  "author": {
+    "name": "cooldadpresident",
+    "url": "https://github.com/cooldadpresident"
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/pinocchio-activate.js\"",
+            "timeout": 5,
+            "statusMessage": "Loading pinocchio mode..."
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/pinocchio-mode-tracker.js\"",
+            "timeout": 5,
+            "statusMessage": "Tracking pinocchio mode..."
+          }
+        ]
+      }
+    ]
+  }
+}
